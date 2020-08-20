@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'Constant.dart';
 
 void main() => runApp(MyApp());
@@ -29,6 +30,7 @@ class HomeScreen extends StatelessWidget {
           ClipPath(
             clipper: MyClipper(),
             child: Container(
+              padding: EdgeInsets.only(left: 40.0, top: 70.0, right: 40.0),
               height: 350,
               width: double.infinity,
               decoration: BoxDecoration(
@@ -38,6 +40,37 @@ class HomeScreen extends StatelessWidget {
                       colors: [Color(0xFF3383CD), Color(0xFF11249F)]),
                   image: DecorationImage(
                       image: AssetImage('assets/images/virus.png'))),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                      alignment: Alignment.topRight,
+                      child: SvgPicture.asset('assets/icons/menu.svg')),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Expanded(
+                    child: Stack(
+                      children: [
+                        SvgPicture.asset(
+                          'assets/icons/Drcorona.svg',
+                          width: 230,
+                          fit: BoxFit.fitWidth,
+                          alignment: Alignment.topCenter,
+                        ),
+                        Positioned(
+                            top: 20,
+                            left: 150,
+                            child: Text(
+                                'Todo lo que necesitas\n es quedarte en casa',
+                                style: kHeadingTextStyle.copyWith(
+                                    color: Colors.white, fontSize: 16))),
+                        Container()
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           )
         ],
